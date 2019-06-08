@@ -1,13 +1,15 @@
 let currentDate = new Date();
-module.exports.date = currentDate;
  
-module.exports.getMessage = function(name){
+global.date = currentDate;
+ 
+module.exports.getMessage = function(){
     let hour = currentDate.getHours();
-    if(hour > 16)
-        return "Добрый вечер, " + name;
-    else if(hour > 10)
-        return "Добрый день, " + name;
+    if(hour >16)
+        return "Good evening, " + global.name;
+    else if(hour >10)
+        return "Good afternoon, " + name;
+    else if(hour < 4)
+    	return "Good night, "
     else
-        return "Доброе утро, " + name;
+        return "Good morning, " + name;
 }
-
