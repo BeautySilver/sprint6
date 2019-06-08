@@ -1,14 +1,12 @@
 
-const express = require("express");
-
-const app = express();
-let name = process.argv[2];
-let age = process.argv[3];
+const http = require("http");
  
-console.log("name: " + name);
-console.log("age: " + age);
-app.get("/", function(request, response){
- 
-    response.end("Hello from Express!"); 
+let message = "Hello World!";
+http.createServer(function(request,response){
+     
+    console.log(message);
+    response.end(message);
+     
+}).listen(3000, "127.0.0.1",()=>{
+    console.log("Сервер начал прослушивание запросов");
 });
-app.listen(3000);
