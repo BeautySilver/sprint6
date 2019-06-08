@@ -1,11 +1,10 @@
 const fs = require("fs");
- 
-let writeableStream = fs.createWriteStream("hello.txt");
-writeableStream.write("Привет мир!");
-writeableStream.write("Продолжение записи \n");
-writeableStream.end("Завершение записи");
+const zlib = require("zlib");
+  
 let readableStream = fs.createReadStream("hello.txt", "utf8");
- 
-readableStream.on("data", function(chunk){ 
-    console.log(chunk);
-});
+  
+let writeableStream = fs.createWriteStream("hello.txt.gz");
+  
+let gzip = zlib.createGzip();
+  
+readableStream.pipe(gzip).pipe(writeableStream);
