@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon first_app.js Artem 17",
+    "start": "nodemon first_app.js Artem 17",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "node first_app.js Tom 26"
+    "dev": "node first_app.js Tom 26"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "needle": "^2.3.1",
