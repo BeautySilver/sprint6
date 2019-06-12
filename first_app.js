@@ -1,19 +1,20 @@
 const express = require("express");
-  
+ 
 const app = express();
-
-const jsonParser = express.json();
-  
-app.post("/user", jsonParser, function (request, response) {
-    console.log(request.body);
-    if(!request.body) return response.sendStatus(400);
+app.set("view engine", "hbs");
+ 
+app.use("/contact", function(request, response){
      
-    response.json(request.body); 
+    response.render("contact.hbs", {
+        title: "Мои контакты",
+        emailsVisible: true,
+        emails: ["gavgav@mycorp.com", "mioaw@mycorp.com"],
+        phone: "+1234567890"
+    });
 });
-  
-app.get("/", function(request, response){
-      
-    response.sendFile(__dirname + "/index.html");
+ 
+app.use("/", function(request, response){
+     
+    response.send("Главная страница");
 });
-  
 app.listen(3000);
