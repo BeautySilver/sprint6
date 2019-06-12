@@ -1,15 +1,25 @@
 const express = require("express");
+
 const app = express();
- 
-app.get("/categories/:categoryId/products/:productId", function (request, response) {
-    let catId = request.params["categoryId"];
-    let prodId = request.params["productId"];
-    response.send(`Категория: ${catId}  Товар: ${prodId}`);
+const productRouter=express.Router();
+ 
+productRouter.use("/create",function (request, response) {
+  response.send("Add product");
 });
-app.get("/book/:pageName.:pageExt", function (request, response) {
-    let pageName = request.params["pageName"];
-    let pageExt = request.params["pageExt"];
-    response.send(`Запрошенный файл: ${pageName}.${pageExt}`);
+productRouter.use("/:id",function (request, response) {
+  response.send(`product ${request.params.id}`);
 });
- 
+productRouter.use("/",function (request, response) {
+  response.send("products list");
+});
+ 
+app.use("/products", productRouter);
+ 
+app.use("/about", function (request, response) {
+  response.send("About");
+});
+ 
+app.use("/", function (request, response) {
+  response.send("Main page");
+});
 app.listen(3000);
