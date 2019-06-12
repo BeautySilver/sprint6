@@ -1,46 +1,32 @@
 const express = require("express");
-const fs = require("fs");
- 
 const app = express();
-app.use(function(request, response, next){
-     
-    let now = new Date();
-    let hour = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    let data = `${hour}:${minutes}:${seconds} ${request.method} ${request.url} ${request.get("user-agent")}`;
-    console.log(data);
-    fs.appendFile("server.log", data + "\n", function(){});
-    next();
-});
  
-app.get("/", function(request, response){
-    response.send("Hello");
+app.use(function (request, response) {
+  response.sendFile(__dirname + "/index.html");
+  
+});
+ app.use("/home/foo/bar",function (request, response) {
+  response.sendStatus(404)
 });
 app.listen(3000);
 
 
 
-
-
-
 // const express = require("express");
- 
 // const app = express();
-// app.use(function(request, response, next){
-     
-//     console.log("Middleware 1");
-//     next();
-// });
-// app.use("/about" function(request, response, next){
-     
-//     console.log("Middleware 2");
-//     response.send("Middleware 2");
+ 
+// app.use(function (request, response) {
+//   response.send(`<!DOCTYPE html>
+//   <html>
+//   <head>
+//       <title>Главная</title>
+//       <meta charset="utf-8" />
+//   </head>
+//   <body>
+//       <h1>Главная страница</h1>
+//       <h3>Привет, Express</h3>
+//   </body>
+//   <html>`);
 // });
  
-// app.get("/", function(request, response){
-     
-//     console.log("Route /");
-//     response.send("Hello");
-// });
 // app.listen(3000);
