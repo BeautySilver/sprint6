@@ -1,0 +1,30 @@
+{
+  "name": "first_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon first_app.js Artem 17",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node first_app.js Tom 26"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "hbs": "^4.0.4",
+    "needle": "^2.3.1",
+    "node-telegram-bot-api": "^0.30.0",
+    "table": "^5.3.2",
+    "trees": "0.0.4"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
+  }
+}
