@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon first_app.js Artem 17",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha *.test.js",
     "dev": "node first_app.js Tom 26"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
     "trees": "0.0.4"
   },
   "devDependencies": {
-    "jasmine-node": "^3.0.0"
+    "jasmine-node": "^3.0.0",
+    "mocha": "^6.1.4"
   }
 }
