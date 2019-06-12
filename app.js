@@ -14,6 +14,13 @@ const connection = mysql.createConnection({
       console.log("Подключение к серверу MySQL успешно установлено");
     }
  });
+ connection.query("SELECT * FROM clients",
+  function(err, results, fields) {
+    console.log(err);
+    console.log(results); 
+    console.log(fields); 
+});
+
  connection.end(function(err) {
   if (err) {
     return console.log("Ошибка: " + err.message);
