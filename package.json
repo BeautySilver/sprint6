@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon first_app.js Artem 17",
-    "test": "mocha app.test.js",
+    "test": "mocha *.test.js",
     "dev": "node first_app.js Tom 26"
   },
   "keywords": [],
